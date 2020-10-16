@@ -1,14 +1,24 @@
 import React from 'react'
 function Card(props){
+    let itemData=props
+    // function updateDb(){
+    //     let q=`INSERT INTO CART VALUES('1002','${props.price}');`
+    //     // let q=props.ProductID
+    //     props.updateDb(q)
+    // }
+    function updateDb(){
+        props.updateDb(itemData)
+    }
     return(
-        <div>
-        <div className="card display-card" >
-        <div className="card-body">
-        <h5 className="card-title">{props.name}</h5>
-        <p className="card-text">{props.address}</p>
-    </div>
-    </div>
-    </div>
+        <div class="card custom-card">
+            <img class="card-img-top" src="..." />
+            <div class="card-body">
+                <h5 class="card-title">{props.name}</h5>
+                <p class="card-text">{props.model}</p>
+                <h5 class="card-title">{props.price}</h5>
+                <a href="#" class="btn btn-primary" onClick={updateDb}>Add to Cart</a>
+            </div>
+        </div>
     )
 }
 export default Card

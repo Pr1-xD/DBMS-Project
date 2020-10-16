@@ -4,16 +4,24 @@ import Card from './Card'
 
 function Cards(props) {
     const mapdata=props.data
-    console.log(mapdata)
+
+    function updateDb(q){
+        props.updateDb(q)
+       
+    }
         function cardsRender(item)
         {
             return(
-            <Card key ={item.Address} name={item.FName} address={item.Address}/>
+            <div class="col-sm-3">
+            <Card key ={item.ProductID} ProductID={item.ProductID} name={item.Name} model={item.Model} price={item.Price} updateDb={updateDb}/>
+            </div>
             )
         } 
     return (
-        <div className="App">
-        {mapdata.map(cardsRender)}
+        <div>
+            <div className="App row">
+            {mapdata.map(cardsRender)}
+            </div>
         </div>
     )
     }
