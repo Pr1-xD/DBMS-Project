@@ -1,15 +1,15 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
-import Cards from './Cards'
-import CartCards from './CartCards'
+import Home from './Home'
+import Cart from './Cart'
 import axios from 'axios'
 import Nav from './Nav'
 
 function App() {
+  const [page,setPage]=useState('Home')
   const [priceArr,setPriceArr]=useState([])
   const [totalPrice,setTotalPrice]=useState(0)
   const [data,setData]=useState(null)
-  const [cartToggle,setCartToggle]=useState(false)
   useEffect(()=>{
     axios.get('http://localhost:5000')
     .then(res => {
@@ -42,17 +42,13 @@ function App() {
     })
   }
 
-  function showCart(){
-    setCartToggle(true)
-  }
+
   
   return (
     <div className="App">
-      <Nav />
+      <Nav page={page} setPage={setPage}/>
       <br/><br/><br/><br/>      
-      {(data!=null)?<Cards data={data} updateDb={updateDb}/>:<br/>}
-      <button class="btn btn-primary" onClick={showCart}>Cart</button>
-      {cartToggle?<CartCards data={priceArr} checkOutDb={checkOutDb} />:<br/>}
+      {page=='Home'?<Home data={data} updateDb={updateDb}/>:page=='Cart' ?<Cart data={priceArr} page={page} setPage={setPage}/>:<></>}
       <button class="btn btn-primary" onClick={checkDb}>Check DB</button>
     </div>
   )
