@@ -10,12 +10,15 @@ function App() {
   const [priceArr,setPriceArr]=useState([])
   const [totalPrice,setTotalPrice]=useState(0)
   const [data,setData]=useState(null)
+
+
   useEffect(()=>{
     axios.get('http://localhost:5000')
     .then(res => {
     console.log(res.status)
     setData(res.data)})
   },[])
+
   function updateDb(val){
     setTotalPrice(totalPrice+val.price)
     console.log(totalPrice)
@@ -44,12 +47,12 @@ function App() {
 
 
   
-  return (
+return (
     <div className="App">
       <Nav page={page} setPage={setPage}/>
       <br/><br/><br/><br/>      
-      {page=='Home'?<Home data={data} updateDb={updateDb}/>:page=='Cart' ?<Cart data={priceArr} page={page} setPage={setPage}/>:<></>}
-      <button class="btn btn-primary" onClick={checkDb}>Check DB</button>
+      {page=='Home'?<Home data={data} updateDb={updateDb}/>:page=='Cart' ?<Cart data={priceArr} page={page} checkOutDb={checkOutDb}/>:<></>}
+      {/* <button class="btn btn-primary" onClick={checkDb}>Check DB</button> */}
     </div>
   )
 }

@@ -18,10 +18,9 @@ function CartCards(props) {
         } 
     return (
         <div>
-            <div className="App row">
+            <div className="App row cart">
             {cardsdata.map(cardsRender)}
             </div>
-            <button onClick={checkOutDb}>CHECKOUT</button>
         </div>
     )
     }

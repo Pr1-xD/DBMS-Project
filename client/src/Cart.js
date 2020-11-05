@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CartCards from './CartCards'
+import Alert from './Alert'
+import Bill from './Bill'
 
 function Cart(props){
+    const [alert,setAlert]=useState(false)
     let data=props.data
-    function setPage(val){
-        props.setPage(val)
-    }
     function checkOutDb(val)
-    {props.checkOutDb(val)}
+    {props.checkOutDb(val)
+    setAlert(true)}
     return(
         <>
+        <h1 className="header">Cart</h1>
         {<CartCards data={data} checkOutDb={checkOutDb} />}
-        <button class="btn btn-primary" onClick={()=>{setPage('Home')}}>Home</button>
+        <Bill data={data} checkOutDb={checkOutDb} setAlert={setAlert}/>
+        {alert?<Alert/>:<></>}
         </>
     )}
 

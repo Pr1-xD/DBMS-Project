@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  overflow-x: hidden;
+}
+
+.home{
+  width: 85%;
+  margin: auto;
+  margin-bottom: 5rem;
 }
 .display-card{
   width: 18rem;
@@ -7,4 +14,36 @@
 .custom-card{
   width:18rem;
   margin:1rem auto;
+}
+.card-img-top{
+ width: 16rem;
+ margin:15px auto;
+}
+
+.cart{
+  width: 85%;
+  margin:1rem auto;
+}
+
+.bill{
+  width:30%;
+  margin: 5rem auto;
+ 
+}
+
+.bill-items{
+  margin: 2rem auto;
+}
+
+.success-alert{
+  width:80%;
+  margin:3rem auto;
+}
+
+.nav-custom{
+  height: 5rem;
+}
+
+.header{
+  margin:2rem auto;
 }

@@ -19,7 +19,8 @@ function Cards(props) {
         } 
     return (
         <div>
-            <div className="App row">
+            <div className="App row home">
+            {mapdata.map(cardsRender)}
             {mapdata.map(cardsRender)}
             </div>
         </div>

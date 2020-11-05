@@ -1,4 +1,6 @@
 import React from 'react'
+import img from './dummy.jpeg'
+
 function Card(props){
     let itemData=props
     // function updateDb(){
@@ -11,7 +13,7 @@ function Card(props){
     }
     return(
         <div class="card custom-card">
-            <img class="card-img-top" src="..." />
+            <img class="card-img-top" src={img} />
             <div class="card-body">
                 <h5 class="card-title">{props.name}</h5>
                 <p class="card-text">{props.model}</p>

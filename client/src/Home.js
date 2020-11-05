@@ -6,7 +6,10 @@ function Home(props){
     function updateDb(val)
     {props.updateDb(val)}
     return(
-        (data!=null)?<Cards data={data} updateDb={updateDb}/>:<></>
+        <>
+        <h1 className="header">Our Products</h1>
+        {(data!=null)?<Cards className="home" data={data} updateDb={updateDb}/>:<></>}
+        </>
     )}
 
 export default Home
